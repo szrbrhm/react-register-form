@@ -11,24 +11,34 @@ function SimpleRegister() {
     onSubmit: (values) => {
       console.log("Values:", values);
     },
-    validate: (values) => {
-      let errors = {};
-      if (!values.name) {
-        errors.name = "Required.Please fill  area";
-      }
-      if (!values.email) {
-        errors.email = "Required.Please fill area";
-      } else if (
-        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-      ) {
-        errors.email = "Invalid email address";
-      }
-      if (!values.userName) {
-        errors.userName = "Required.Please fill  area";
-      }
-      return errors;
-    },
-  });
+//     validate: (values) => {
+//       let errors = {};
+//       if (!values.name) {
+//         errors.name = "Required.Please fill  area";
+//       }
+//       if (!values.email) {
+//         errors.email = "Required.Please fill area";
+//       } else if (
+//         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+//       ) {
+//         errors.email = "Invalid email address";
+//       }
+//       if (!values.userName) {
+//         errors.userName = "Required.Please fill  area";
+//       }
+//       return errors;
+//     },
+
+
+    validationSchema:Yup.object({
+        name:Yup.string()
+        .max(15,"Must be 15 characters or less")
+        .required("Required.Enter name")
+    })
+});
+
+
+
   // console.log("Formik values :",formik.values)
   // console.log("Formik  :",formik)
   console.log(`formik touch`, formik.touched)
