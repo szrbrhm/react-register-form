@@ -1,6 +1,8 @@
 import React from "react";
 import "../App.css";
 import { useFormik } from "formik";
+import * as Yup from 'yup';
+
 function SimpleRegister() {
   const formik = useFormik({
     initialValues: {
