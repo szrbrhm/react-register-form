@@ -31,6 +31,7 @@ function SimpleRegister() {
   });
   // console.log("Formik values :",formik.values)
   // console.log("Formik  :",formik)
+  console.log(`formik touch`, formik.touched)
   return (
     <div className="container">
       <h1>Simple Form</h1>
@@ -42,8 +43,9 @@ function SimpleRegister() {
           name="name"
           onChange={formik.handleChange}
           value={formik.values.name}
+          onBlur={formik.handleBlur}
         ></input>
-        {formik.errors.name ? (
+        {formik.touched.name && formik.errors.name ? (
           <div className="errorStyle">{formik.errors.name} </div>
         ) : null}
         <label htmlFor="email">Email</label>
@@ -54,7 +56,7 @@ function SimpleRegister() {
           onChange={formik.handleChange}
           value={formik.values.email}
         ></input>
-        {formik.errors.email ? (
+        {formik.touched.email && formik.errors.email ? (
           <div className="errorStyle">{formik.errors.email} </div>
         ) : null}
         <label htmlFor="userName">User name</label>
@@ -65,7 +67,7 @@ function SimpleRegister() {
           onChange={formik.handleChange}
           value={formik.values.userName}
         ></input>
-        {formik.errors.userName ? (
+        {formik.touched.userName && formik.errors.userName ? (
           <div className="errorStyle">{formik.errors.userName} </div>
         ) : null}
         <button>Submit</button>
